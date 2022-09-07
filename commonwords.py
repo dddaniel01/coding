@@ -1,9 +1,28 @@
 """A common words task."""
 
 #   name: CommonWords
-#   description: A task that process a file and find the most common word and the least common word.
-#   Dev: Daniel Castillo Torres
-#   Date: September 7, 2022
+#   dev: Daniel Castillo Torres
+#   date: September 7, 2022
+
+#   Description:
+#   Use Apache Beam Python SDK (https://beam.apache.org/)
+#   You should be able to run it locally, don’t need to serve it in the cloud. Jupiter notebook is a
+#   good choice.
+#   We want to process a file and find
+#       - Most common word
+#       - Least common word
+#   Please notice that counting should be case insensitive.
+#   Input and Output paths should be parameters but some default values should be provided.
+
+#   Example
+#       input.txt:
+#       aa Ab ab Ab C CD
+#       most_common.txt
+#       ab
+#       least_common.txt
+#       aa
+#       —
+#       (c and cd are also valid outputs)
 
 import argparse
 import re
@@ -83,7 +102,6 @@ def run(argv=None, save_main_session=True):
     # Write the output 
     output_most | 'WriteMost' >> WriteToText(known_args.output + "/most_common.txt")
     output_least | 'WriteLeast' >> WriteToText(known_args.output + "/least_common.txt")
-
 
 if __name__ == '__main__':
   run()
