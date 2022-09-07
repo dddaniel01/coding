@@ -31,7 +31,6 @@ import apache_beam as beam
 from apache_beam.io import ReadFromText
 from apache_beam.io import WriteToText
 from apache_beam.options.pipeline_options import PipelineOptions
-from apache_beam.options.pipeline_options import SetupOptions
 
 def run(argv=None, save_main_session=True):
   parser = argparse.ArgumentParser()
